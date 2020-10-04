@@ -8,6 +8,11 @@ import com.google.gson.Gson;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.net.URLConnection;
+
 
 public class ComboBoxExperiments extends Application  {
 
@@ -50,6 +55,24 @@ public class ComboBoxExperiments extends Application  {
     }
     public class Txanpona {
         float prezioa;
+    }
+    public class URLReader {
+        public static String URLReader(String moneta) throws Exception {
+            Gson gson = new Gson();
+            URL monetaWebOrri = new URL("https://api.gdax.com/products/"+moneta+"-eur/ticker");
+            URLConnection hasi = monetaWebOrri.openConnection();
+            BufferedReader in = new BufferedReader(
+                    new InputStreamReader(monetaWebOrri.openStream()));
+
+            String inputLine;
+
+            while ((inputLine = in.readLine()) != null)
+                System.out.println(inputLine);
+            in.close();
+
+            return inputLine;
+
+        }
     }
 }
 
