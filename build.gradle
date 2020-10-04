@@ -24,12 +24,16 @@ mainClassName = "$moduleName/ehu.isad.App"
 
 javafx {
     version = "12"
-    modules = [ ]
+    modules = [ 'javafx.controls', 'javafx.fxml', 'javafx.swing', 'javafx.web']
 }
 
 
 repositories {
     mavenCentral()
+}
+
+dependencies {
+    implementation 'com.google.code.gson:gson:2.8.6'
 }
 
 def newArgs = [ '--add-exports','java.desktop/com.apple.eawt=ALL-UNNAMED',]

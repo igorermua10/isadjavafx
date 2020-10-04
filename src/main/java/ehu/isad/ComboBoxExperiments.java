@@ -12,13 +12,13 @@ public class ComboBoxExperiments extends Application  {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        primaryStage.setTitle("ComboBox Experiment 1");
+        primaryStage.setTitle("Txanponen ariketa");
 
         ComboBox comboBox = new ComboBox();
 
-        comboBox.getItems().add("Choice 1");
-        comboBox.getItems().add("Choice 2");
-        comboBox.getItems().add("Choice 3");
+        comboBox.getItems().add("BTC");
+        comboBox.getItems().add("ETH");
+        comboBox.getItems().add("LTC");
 
         comboBox.setEditable(true);
 
