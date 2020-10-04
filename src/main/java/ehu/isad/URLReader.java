@@ -4,7 +4,7 @@ import java.io.*;
 import com.google.gson.Gson;
 
 public class URLReader {
-    public static String URLlortu(String moneta) throws Exception {
+    public static String URLReader(String moneta) throws Exception {
         Gson gson = new Gson();
         URL monetaWebOrri = new URL("https://api.gdax.com/products/"+moneta+"-eur/ticker");
         URLConnection hasi = monetaWebOrri.openConnection();
