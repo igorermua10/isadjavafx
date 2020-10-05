@@ -33,7 +33,12 @@ public class ComboBoxExperiments extends Application  {
 
         comboBox.setOnAction(e -> {
             System.out.println( comboBox.getValue());
-            String emaitza = this.URLReader((String)comboBox.getValue());
+            String emaitza = null;
+            try {
+                emaitza = this.URLReader((String)comboBox.getValue());
+            } catch (Exception exception) {
+                exception.printStackTrace();
+            }
             Txanpona txanpona = gson.fromJson(emaitza, Txanpona.class);
             labela.setText("1 "+(String)comboBox.getValue()+"= "+txanpona.prezioa);
         });
@@ -42,6 +47,7 @@ public class ComboBoxExperiments extends Application  {
         Scene scene = new Scene(vbox, 200, 120);
         primaryStage.setScene(scene);
         primaryStage.show();
+
 
     }
     private String URLReader(String moneta) throws Exception {
