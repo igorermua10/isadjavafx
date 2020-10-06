@@ -8,7 +8,9 @@ import com.google.gson.Gson;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 
@@ -50,18 +52,24 @@ public class ComboBoxExperiments extends Application  {
 
 
     }
-    private String URLReader(String moneta) throws Exception {
-
+    public class Txanpona {
+        float prezioa;
+    }
+    private String URLReader(String moneta) {
+        try {
         URL monetaWebOrri = new URL("https://api.gdax.com/products/"+moneta+"-eur/ticker");
         URLConnection hasi = monetaWebOrri.openConnection();
         BufferedReader in = new BufferedReader(
-                new InputStreamReader(monetaWebOrri.openStream()));
-
-        String inputLine;
-
-        while ((inputLine = in.readLine()) != null)
-            System.out.println(inputLine);
-        in.close();
+                new InputStreamReader(hasi.getInputStream()));
+        String inputLine = in.readLine();
+        in.close();}
+        catch (MalformedURLException e){
+                e.printStackTrace();
+            }catch (IOException e){
+                e.printStackTrace();
+            } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
 
         return inputLine;
 
@@ -71,9 +79,7 @@ public class ComboBoxExperiments extends Application  {
     public static void main(String[] args) {
         Application.launch(args);
     }
-    public class Txanpona {
-        float prezioa;
-    }
+
 
 }
 
