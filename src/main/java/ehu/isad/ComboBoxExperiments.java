@@ -62,7 +62,7 @@ public class ComboBoxExperiments extends Application  {
             URLConnection hasi = monetaWebOrri.openConnection();
             BufferedReader in = new BufferedReader(
                     new InputStreamReader(hasi.getInputStream()));
-            String input = in.readLine();
+            input = in.readLine();
             in.close();
         }
         catch (MalformedURLException e){
