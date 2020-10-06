@@ -57,7 +57,6 @@ public class ComboBoxExperiments extends Application  {
     }
     private String URLReader(String moneta) {
         String input = "";
-        URL monetaWebOrri;
         try {
             URL monetaWebOrri = new URL("https://api.gdax.com/products/" + moneta + "-eur/ticker");
             URLConnection hasi = monetaWebOrri.openConnection();
