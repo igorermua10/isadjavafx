@@ -56,22 +56,23 @@ public class ComboBoxExperiments extends Application  {
         float prezioa;
     }
     private String URLReader(String moneta) {
+        String input = "";
+        URL monetaWebOrri;
         try {
-        URL monetaWebOrri = new URL("https://api.gdax.com/products/"+moneta+"-eur/ticker");
-        URLConnection hasi = monetaWebOrri.openConnection();
-        BufferedReader in = new BufferedReader(
-                new InputStreamReader(hasi.getInputStream()));
-        String inputLine = in.readLine();
-        in.close();}
+            URL monetaWebOrri = new URL("https://api.gdax.com/products/" + moneta + "-eur/ticker");
+            URLConnection hasi = monetaWebOrri.openConnection();
+            BufferedReader in = new BufferedReader(
+                    new InputStreamReader(hasi.getInputStream()));
+            String input = in.readLine();
+            in.close();
+        }
         catch (MalformedURLException e){
                 e.printStackTrace();
             }catch (IOException e){
                 e.printStackTrace();
-            } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
+            }
 
-        return inputLine;
+        return input;
 
     }
 
